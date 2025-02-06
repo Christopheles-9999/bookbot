@@ -1,11 +1,28 @@
+book_path = "books/frankenstein.txt"
+"""
+print(f"the book path ~> alias [book_path]")
+print(f"{book_path}")
+print(f"     ")
+"""
+
 def main():
-    with open("books/frankenstein.txt") as f:
+    with open(book_path) as f:
         file_contents = f.read() # defines 'file_contents' as f: with read() function
-    print(file_contents) # outputs the contents of the .txt as console 
+    # print(file_contents)
+        # outputs the contents of the .txt as console 
     
+    return file_contents 
+
+the_book = main()
+"""
+print(f"the full book ~> alias [the_book]")
+print(f"{the_book[:73]}")
+print(f"     ")
+"""
+
 
 def count():
-    with open("books/frankenstein.txt") as f: 
+    with open(book_path) as f: 
             # captures the book as a reference
         book_contents = f.read()
         words = book_contents.split()
@@ -16,8 +33,12 @@ def count():
     return cnt_total
 
 word_total = count()
+"""
+print(f"the word count ~> alias [word_total]")
 print(f"{word_total}")
 print(f"     ")
+"""
+
 
 def text():
 
@@ -40,10 +61,12 @@ def text():
 
     return captures
 
-
 digit = text()
+"""
+print(f"the char count ~> alias [digit]")
 print(f"{digit}")
 print(f"     ")
+"""
 
 
 def organize():
@@ -81,12 +104,40 @@ def organize():
         # Sort the list (see the hint about sorting in the readme)
     return char_list
 
-values = organize()
 
+# NEST GROUP 001 vvv
 def sort_on(dict):
     return dict["num"]
 
-values.sort(reverse=True, key=sort_on)
+the_sorted = organize()
 
-print(f"{values}")
+the_sorted.sort(reverse=True, key=sort_on)
+# NEST GROUP 001 ^^^
+
+"""
+print(f"the word total ~> alias [the_sorted]")
+print(f"{the_sorted}")
 print(f"     ")
+"""
+
+
+def the_full_sandwich():
+    print(f"--- Begin report of {book_path}.txt")
+    print(f"     ")
+    print(f"{word_total} words found in the document")
+    print(f"     ")
+    
+    for char_dict in the_sorted:
+        if char_dict['char'].isalpha():
+            print(f"The '{char_dict['char']}' character was found {char_dict['num']} times")
+    
+    print(f"--- End report ---")
+
+the_full_sandwich()
+
+# print(f"{the_sorted[:20]}")
+
+
+
+
+    
