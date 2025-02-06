@@ -10,9 +10,14 @@ def count():
         book_contents = f.read()
         words = book_contents.split()
     
-    total = len(words)
+    cnt_total = len(words)
         # prints the numbers of words based on the split
+    
+    return cnt_total
 
+word_total = count()
+print(f"{word_total}")
+print(f"     ")
 
 def text():
 
@@ -36,14 +41,16 @@ def text():
     return captures
 
 
-values = text()
+digit = text()
+print(f"{digit}")
+print(f"     ")
 
 
 def organize():
     char_list = []
         # empty list
     
-    for char, count in values.items():
+    for char, count in digit.items():
         # refers to the defined prev fnc output    
             # char & count capture for the pairings within the dictionary that are undefined  
         
@@ -81,4 +88,5 @@ def sort_on(dict):
 
 values.sort(reverse=True, key=sort_on)
 
-print(values)
+print(f"{values}")
+print(f"     ")
